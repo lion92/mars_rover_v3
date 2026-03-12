@@ -141,6 +141,20 @@ public class RoverTest {
         Assertions.assertEquals(Direction.S, roverAfterMove.getDirection());
     }
 
+    @Test
+    void should_return_to_origin_when_executeCommandBackward_undoes_executeCommand() {
+        //given
+        PositionRover position = new PositionRover(0, 0);
+        Direction direction = Direction.N;
+        Rover rover = new Rover(position, direction);
 
+        //when — avance LLFF puis annule avec executeCommandBackward
+        Rover roverAfterMove = rover.executeCommand("LLFF").executeCommandBackward("LLFF");
+
+        //then — doit revenir à la position initiale
+        Assertions.assertEquals(0, roverAfterMove.getPosition().getX());
+        Assertions.assertEquals(0, roverAfterMove.getPosition().getY());
+        Assertions.assertEquals(Direction.N, roverAfterMove.getDirection());
+    }
 
 }

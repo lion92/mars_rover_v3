@@ -62,7 +62,7 @@ public class Rover {
     public Rover executeCommandBackward(String command) {
 
         Rover rover = this;
-        command = command.toUpperCase();
+        command = new StringBuilder(command.toUpperCase()).reverse().toString();
         for (char c : command.toCharArray()) {
             rover = switch (c) {
                 case 'F' -> new FowardCommand(rover).moveBackward();
