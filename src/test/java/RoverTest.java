@@ -105,6 +105,5 @@ public class RoverTest {
         Assertions.assertEquals(0, roverAfterMove.getPosition().getY());
         Assertions.assertEquals(Direction.S, roverAfterMove.getDirection());
     }
-
-
+    
 }

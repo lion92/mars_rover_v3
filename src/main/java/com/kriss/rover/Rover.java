@@ -2,6 +2,7 @@ package com.kriss.rover;
 
 import com.kriss.direction.Direction;
 import com.kriss.rover.postion.PositionRover;
+import com.kriss.turnleft.TurnLeft;
 
 public class Rover {
     private PositionRover position;
@@ -31,45 +32,19 @@ public class Rover {
         );
     }
 
-    public Rover turnRight() {
-        return switch (direction) {
-            case Direction.N -> new Rover(
-                    position,
-                    Direction.E
-            );
-            case Direction.E -> new Rover(
-                    position,
-                    Direction.S
-            );
-            case Direction.S -> new Rover(
-                    position,
-                    Direction.W
-            );
-            case Direction.W -> new Rover(
-                    position,
-                    Direction.N
-            );
-        };
+    public Rover turnLeft() {
+        return new TurnLeft(this).execute();
     }
 
-    public Rover turnLeft() {
-        return switch (direction) {
-            case Direction.N -> new Rover(
-                    position,
-                    Direction.W
-            );
-            case Direction.E -> new Rover(
-                    position,
-                    Direction.N
-            );
-            case Direction.S -> new Rover(
-                    position,
-                    Direction.E
-            );
-            case Direction.W -> new Rover(
-                    position,
-                    Direction.S
-            );
-        };
+    public Rover turnRight() {
+        return new Rover(
+                position,
+                switch (direction) {
+                    case N -> Direction.E;
+                    case E -> Direction.S;
+                    case S -> Direction.W;
+                    case W -> Direction.N;
+                }
+        );
     }
 }
