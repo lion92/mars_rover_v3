@@ -24,4 +24,18 @@ public class FowardCommand {
             case W -> new Rover(new PositionRover(x - 1, y), direction);
         };
     }
+
+    public Rover moveBackward() {
+        PositionRover position = rover.getPosition();
+        Direction direction = rover.getDirection();
+        int x = position.getX();
+        int y = position.getY();
+
+        return switch (direction) {
+            case N -> new Rover(new PositionRover(x, y - 1), direction);
+            case E -> new Rover(new PositionRover(x - 1, y), direction);
+            case S -> new Rover(new PositionRover(x, y + 1), direction);
+            case W -> new Rover(new PositionRover(x + 1, y), direction);
+        };
+    }
 }

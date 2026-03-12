@@ -1,5 +1,7 @@
 package com.kriss.rover.postion;
 
+import java.util.Objects;
+
 public class PositionRover {
 
     private int x;
@@ -23,5 +25,13 @@ public class PositionRover {
 
     public int getY() {
         return y;
+    }
+
+    @Override
+    public String toString() {
+        return "PositionRover{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
     }
 }

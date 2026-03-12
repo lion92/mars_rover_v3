@@ -32,4 +32,28 @@ public class TurnLeft {
             );
         };
     }
+
+    public Rover executeBackward() {
+
+        Direction direction = rover.getDirection();
+
+        return switch (direction) {
+            case N -> new Rover(
+                    rover.getPosition(),
+                    Direction.E
+            );
+            case E -> new Rover(
+                    rover.getPosition(),
+                    Direction.S
+            );
+            case S -> new Rover(
+                    rover.getPosition(),
+                    Direction.W
+            );
+            case W -> new Rover(
+                    rover.getPosition(),
+                    Direction.N
+            );
+        };
+    }
 }
