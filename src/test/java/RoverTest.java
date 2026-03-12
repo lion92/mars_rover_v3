@@ -1,3 +1,4 @@
+import com.kriss.command.fowardCommand.FowardCommand;
 import com.kriss.direction.Direction;
 import com.kriss.rover.postion.PositionRover;
 import com.kriss.rover.Rover;
@@ -30,7 +31,7 @@ public class RoverTest {
 
         //when
 
-        Rover roverAfterMove = rover.moveForward();
+        Rover roverAfterMove = new FowardCommand(rover).moveForward();
 
         //then
 
@@ -105,5 +106,39 @@ public class RoverTest {
         Assertions.assertEquals(0, roverAfterMove.getPosition().getY());
         Assertions.assertEquals(Direction.S, roverAfterMove.getDirection());
     }
-    
+
+    @Test
+    void should_return_S_0_moins1_when_the_rover_turn_twice_left_and_move_foward_when_it_is_in_N_0_0() {
+        //given
+        PositionRover position = new PositionRover(0, 0);
+        Direction direction = Direction.N;
+        Rover rover = new Rover(position, direction);
+
+        //when
+        Rover roverAfterMove = rover.executeCommand("LLF");
+
+        //then
+
+        Assertions.assertEquals(0, roverAfterMove.getPosition().getX());
+        Assertions.assertEquals(-1, roverAfterMove.getPosition().getY());
+        Assertions.assertEquals(Direction.S, roverAfterMove.getDirection());
+    }
+
+    @Test
+    void should_return_S_0_moins2_when_the_rover_turn_twice_left_and_move_foward_twice_when_it_is_in_N_0_0() {
+        //given
+        PositionRover position = new PositionRover(0, 0);
+        Direction direction = Direction.N;
+        Rover rover = new Rover(position, direction);
+
+        //when
+        Rover roverAfterMove = rover.executeCommand("LLFF");
+
+        //then
+
+        Assertions.assertEquals(0, roverAfterMove.getPosition().getX());
+        Assertions.assertEquals(-2, roverAfterMove.getPosition().getY());
+        Assertions.assertEquals(Direction.S, roverAfterMove.getDirection());
+    }
+
 }

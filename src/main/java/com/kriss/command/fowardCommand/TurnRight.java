@@ -1,11 +1,12 @@
-package com.kriss.turnleft;
+package com.kriss.command.fowardCommand;
 
 import com.kriss.direction.Direction;
 import com.kriss.rover.Rover;
 
-public class TurnLeft {
+public class TurnRight {
     private Rover rover;
-    public TurnLeft(Rover rover) {
+
+    public TurnRight(Rover rover) {
         this.rover = rover;
     }
 
@@ -16,19 +17,19 @@ public class TurnLeft {
         return switch (direction) {
             case N -> new Rover(
                     rover.getPosition(),
-                    Direction.W
+                    Direction.E
             );
             case E -> new Rover(
                     rover.getPosition(),
-                    Direction.N
+                    Direction.S
             );
             case S -> new Rover(
                     rover.getPosition(),
-                    Direction.E
+                    Direction.W
             );
             case W -> new Rover(
                     rover.getPosition(),
-                    Direction.S
+                    Direction.N
             );
         };
     }

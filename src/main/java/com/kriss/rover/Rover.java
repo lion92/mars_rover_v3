@@ -1,8 +1,10 @@
 package com.kriss.rover;
 
+import com.kriss.command.fowardCommand.TurnRight;
 import com.kriss.direction.Direction;
+import com.kriss.command.fowardCommand.FowardCommand;
 import com.kriss.rover.postion.PositionRover;
-import com.kriss.turnleft.TurnLeft;
+import com.kriss.command.fowardCommand.TurnLeft;
 
 public class Rover {
     private PositionRover position;
@@ -25,26 +27,30 @@ public class Rover {
         return direction;
     }
 
-    public Rover moveForward() {
-        return new Rover(
-                new PositionRover(position.getX(), position.getY() + 1),
-                direction
-        );
-    }
+
 
     public Rover turnLeft() {
         return new TurnLeft(this).execute();
     }
 
     public Rover turnRight() {
-        return new Rover(
-                position,
-                switch (direction) {
-                    case N -> Direction.E;
-                    case E -> Direction.S;
-                    case S -> Direction.W;
-                    case W -> Direction.N;
-                }
-        );
+        return new TurnRight(this).execute();
     }
+
+    public Rover executeCommand(String command) {
+
+        Rover rover = this;
+        command = command.toUpperCase();
+        for (char c : command.toCharArray()) {
+            rover = switch (c) {
+                case 'F' -> new FowardCommand(rover).moveForward();
+                case 'L' -> rover.turnLeft();
+                case 'R' -> rover.turnRight();
+                default -> throw new IllegalArgumentException("Invalid command: " + c);
+            };
+        }
+        return rover;
+    }
+
+
 }
