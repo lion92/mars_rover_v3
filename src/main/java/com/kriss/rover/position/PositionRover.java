@@ -1,6 +1,4 @@
-package com.kriss.rover.postion;
-
-import java.util.Objects;
+package com.kriss.rover.position;
 
 public class PositionRover {
 

@@ -1,7 +1,7 @@
 import com.kriss.command.fowardCommand.FowardCommand;
 import com.kriss.direction.Direction;
-import com.kriss.rover.postion.PositionRover;
-import com.kriss.rover.Rover;
+import com.kriss.rover.position.PositionRover;
+import com.kriss.rover.entity.Rover;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

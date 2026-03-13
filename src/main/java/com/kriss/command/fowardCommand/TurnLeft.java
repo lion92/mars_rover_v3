@@ -1,7 +1,7 @@
 package com.kriss.command.fowardCommand;
 
 import com.kriss.direction.Direction;
-import com.kriss.rover.Rover;
+import com.kriss.rover.entity.Rover;
 
 public class TurnLeft {
     private Rover rover;

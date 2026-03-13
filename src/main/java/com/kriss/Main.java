@@ -1,15 +1,13 @@
 package com.kriss;
 
-import com.kriss.direction.Direction;
-import com.kriss.rover.Rover;
-import com.kriss.rover.postion.PositionRover;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+@SpringBootApplication
 public class Main {
+
     public static void main(String[] args) {
-        System.out.println(new Rover(new PositionRover(0,0), Direction.N).executeCommand("FFFFFF").toString());
-        System.out.println(new Rover(new PositionRover(0,0), Direction.N).executeCommand("FBFBFBFB").toString());
-        System.out.println(new Rover(new PositionRover(0,0), Direction.N).executeCommand("LB").toString());
-
-
+        SpringApplication.run(Main.class, args);
     }
+
 }

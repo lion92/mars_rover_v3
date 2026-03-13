@@ -1,8 +1,8 @@
 package com.kriss.command.fowardCommand;
 
 import com.kriss.direction.Direction;
-import com.kriss.rover.Rover;
-import com.kriss.rover.postion.PositionRover;
+import com.kriss.rover.entity.Rover;
+import com.kriss.rover.position.PositionRover;
 
 public class FowardCommand {
     private Rover rover;
