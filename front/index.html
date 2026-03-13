@@ -7,68 +7,26 @@
 </head>
 
 <body>
+<h1>Contrôle du Rover sur Mars</h1>
+<button onclick="createRover(0,0,'N')">Creer un rover</button>
+<h2>Command</h2>
+<label for="getCommand"></label><input label="commande" type="text" id="getCommand"/>
+<h2>Id</h2>
+<label for="getid"></label><input label="commande" type="text" id="getId"/>
+<button onclick="moveRover()">Move rover</button>
 
-<h1>MARS ROVER CONTROL</h1>
 
-<div class="main-layout">
 
-    <div class="sidebar">
 
-        <div class="panel">
-            <h2>Créer un Rover</h2>
-            <label>X</label>
-            <input type="number" id="x" value="0">
-            <label>Y</label>
-            <input type="number" id="y" value="0">
-            <label>Direction</label>
-            <select id="direction">
-                <option>N</option>
-                <option>S</option>
-                <option>E</option>
-                <option>W</option>
-            </select>
-            <button onclick="createRover()">Déployer</button>
-        </div>
-
-        <div class="panel">
-            <h2>Déplacer Rover</h2>
-            <label>ID Rover</label>
-            <input type="number" id="roverId">
-            <label>Commandes</label>
-            <div class="cmd-hint">F = Avancer &nbsp; B = Reculer<br>L = Gauche &nbsp; R = Droite</div>
-            <input type="text" id="commands" placeholder="ex: FFRFF">
-            <div class="speed-row">
-                <label>Vitesse anim.</label>
-                <input type="range" id="speed" min="50" max="600" value="200" step="50">
-                <span id="speedLabel">200ms</span>
-            </div>
-            <button onclick="moveRover()" id="moveBtn">Envoyer</button>
-        </div>
-
-        <div class="panel legend-panel">
-            <h2>Légende</h2>
-            <div id="legend"></div>
-        </div>
-
-        <div class="panel">
-            <h2>Résultat API</h2>
-            <pre id="result"></pre>
-        </div>
-
-    </div>
-
-    <div class="canvas-area">
-        <div class="canvas-wrapper">
-            <canvas id="roverCanvas"></canvas>
-            <div class="coords-display">
-                Rover sélectionné : <span id="coordsInfo">—</span>
-            </div>
-        </div>
-    </div>
-
+<div id="status">
+    <p>Position actuelle: (0, 0)</p>
+    <p>Direction actuelle: Nord</p>
 </div>
-
-<script src="script.js"></script>
+    <canvas id="myChart"></canvas>
 
 </body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<script src="script.js"></script>
 </html>
